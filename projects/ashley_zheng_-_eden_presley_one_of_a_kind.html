@@ -20,87 +20,102 @@
             <div id="pdf-pages-wrapper" class="pdf-pages-wrapper"></div>
         </div>
         <script>
-            // Initialize PDF.js worker
-            if (typeof pdfjsLib !== 'undefined') {
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-            }
-            
-            function waitForPDFJS(callback) {
-                if (typeof pdfjsLib !== 'undefined') {
-                    callback();
-                } else {
-                    setTimeout(() => waitForPDFJS(callback), 100);
-                }
-            }
-            
-            const pdfUrl = '../assets/pdfs/ashley_zheng_-_eden_presley_one_of_a_kind.pdf';
-            const pdfPagesWrapper = document.getElementById('pdf-pages-wrapper');
-            let pdfDoc = null;
-            const scale = 1.5;
-            
-            function loadPDF(url) {
-                if (window.location.protocol === 'file:') {
-                    pdfPagesWrapper.innerHTML = 
-                        '<div style="padding: 2rem; text-align: center; color: #666; margin-bottom: 1rem;">' +
-                        '<p>For infinite scroll PDF viewing, please use a local server:</p>' +
-                        '<code style="background: #f0f0f0; padding: 0.5rem; display: inline-block; margin-top: 0.5rem;">python3 -m http.server 8080</code>' +
-                        '</div>' +
-                        '<iframe src="' + url + '" style="width: 100%; height: 80vh; border: none;" type="application/pdf"></iframe>';
-                    return;
-                }
+            (function() {
+                const pdfUrl = '../assets/pdfs/ashley_zheng_-_eden_presley_one_of_a_kind.pdf';
+                const pdfPagesWrapper = document.getElementById('pdf-pages-wrapper');
+                let pdfDoc = null;
+                const scale = 1.5;
                 
-                if (typeof pdfjsLib === 'undefined') {
-                    pdfPagesWrapper.innerHTML = 
-                        '<p style="padding: 2rem; text-align: center; color: #666;">PDF.js library is loading. Please wait...</p>';
-                    setTimeout(() => loadPDF(url), 500);
-                    return;
-                }
-                
-                pdfjsLib.getDocument({
-                    url: url,
-                    withCredentials: false
-                }).promise.then(function(pdf) {
-                    pdfDoc = pdf;
-                    pdfPagesWrapper.innerHTML = '';
-                    
-                    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                        renderPage(pageNum);
+                // Wait for PDF.js to load
+                function waitForPDFJS(callback) {
+                    if (typeof pdfjsLib !== 'undefined') {
+                        // Initialize worker
+                        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                        callback();
+                    } else {
+                        setTimeout(() => waitForPDFJS(callback), 100);
                     }
-                }).catch(function(error) {
-                    console.error('Error loading PDF:', error);
-                    pdfPagesWrapper.innerHTML = 
-                        '<p style="padding: 2rem; text-align: center; color: #666;">Error loading PDF: ' + error.message + '</p>' +
-                        '<iframe src="' + url + '" style="width: 100%; height: 80vh; border: none;" type="application/pdf"></iframe>';
-                });
-            }
-            
-            function renderPage(pageNum) {
-                pdfDoc.getPage(pageNum).then(function(page) {
-                    const viewport = page.getViewport({scale: scale});
+                }
+                
+                function loadPDF(url) {
+                    // Check if using file:// protocol
+                    if (window.location.protocol === 'file:') {
+                        pdfPagesWrapper.innerHTML = 
+                            '<div style="padding: 2rem; text-align: center; color: #666; margin-bottom: 1rem;">' +
+                            '<p>For infinite scroll PDF viewing, please use a local server:</p>' +
+                            '<code style="background: #f0f0f0; padding: 0.5rem; display: inline-block; margin-top: 0.5rem;">python3 -m http.server 8080</code>' +
+                            '</div>' +
+                            '<iframe src="' + url + '" style="width: 100%; height: 80vh; border: none;" type="application/pdf"></iframe>';
+                        return;
+                    }
                     
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
-                    canvas.className = 'pdf-page-canvas';
+                    if (typeof pdfjsLib === 'undefined') {
+                        pdfPagesWrapper.innerHTML = 
+                            '<p style="padding: 2rem; text-align: center; color: #666;">PDF.js library is loading. Please wait...</p>';
+                        setTimeout(() => loadPDF(url), 500);
+                        return;
+                    }
                     
-                    const pageContainer = document.createElement('div');
-                    pageContainer.className = 'pdf-page-container';
-                    pageContainer.appendChild(canvas);
+                    pdfPagesWrapper.innerHTML = '<p style="padding: 2rem; text-align: center; color: #666;">Loading PDF...</p>';
                     
-                    pdfPagesWrapper.appendChild(pageContainer);
-                    
-                    const renderContext = {
-                        canvasContext: ctx,
-                        viewport: viewport
-                    };
-                    page.render(renderContext);
-                });
-            }
-            
-            waitForPDFJS(() => {
-                loadPDF(pdfUrl);
-            });
+                    pdfjsLib.getDocument({
+                        url: url,
+                        withCredentials: false
+                    }).promise.then(function(pdf) {
+                        pdfDoc = pdf;
+                        pdfPagesWrapper.innerHTML = '';
+                        
+                        // Render all pages
+                        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                            renderPage(pageNum);
+                        }
+                    }).catch(function(error) {
+                        console.error('Error loading PDF:', error);
+                        pdfPagesWrapper.innerHTML = 
+                            '<p style="padding: 2rem; text-align: center; color: #666;">Error loading PDF: ' + error.message + '</p>' +
+                            '<iframe src="' + url + '" style="width: 100%; height: 80vh; border: none;" type="application/pdf"></iframe>';
+                    });
+                }
+                
+                function renderPage(pageNum) {
+                    pdfDoc.getPage(pageNum).then(function(page) {
+                        const viewport = page.getViewport({scale: scale});
+                        
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        canvas.className = 'pdf-page-canvas';
+                        
+                        const pageContainer = document.createElement('div');
+                        pageContainer.className = 'pdf-page-container';
+                        pageContainer.appendChild(canvas);
+                        
+                        pdfPagesWrapper.appendChild(pageContainer);
+                        
+                        const renderContext = {
+                            canvasContext: ctx,
+                            viewport: viewport
+                        };
+                        page.render(renderContext);
+                    }).catch(function(error) {
+                        console.error('Error rendering page ' + pageNum + ':', error);
+                    });
+                }
+                
+                // Wait for DOM and PDF.js to be ready
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() {
+                        waitForPDFJS(() => {
+                            loadPDF(pdfUrl);
+                        });
+                    });
+                } else {
+                    waitForPDFJS(() => {
+                        loadPDF(pdfUrl);
+                    });
+                }
+            })();
         </script>
         </div>
         <div class="project-content">
