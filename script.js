@@ -181,131 +181,52 @@ class Carousel {
     }
 }
 
-// Project rendering functions
-function renderFeaturedProjects() {
-    const featuredGrid = document.getElementById('featured-grid');
-    if (!featuredGrid) return;
-    
-    const featuredProjects = getFeaturedProjects();
-    featuredGrid.innerHTML = '';
-    
-    featuredProjects.forEach(project => {
-        const card = createProjectCard(project, 'regular');
-        featuredGrid.appendChild(card);
-    });
-}
-
-function renderCarouselProjects() {
-    const carouselTrack = document.getElementById('carousel-track');
-    if (!carouselTrack) return;
-    
-    const carouselProjects = getCarouselProjects();
-    carouselTrack.innerHTML = '';
-    
-    carouselProjects.forEach(project => {
-        const card = createProjectCard(project, 'carousel');
-        carouselTrack.appendChild(card);
-    });
-}
-
-function createProjectCard(project, thumbnailType) {
-    const card = document.createElement('a');
-    card.href = `projects/${project.id}.html`;
-    card.className = 'project-card';
-    
-    const thumbnailDiv = document.createElement('div');
-    thumbnailDiv.className = `card-thumbnail thumbnail-${thumbnailType}`;
-    
-    const img = document.createElement('img');
-    const thumbnailUrl = thumbnailType === 'regular' 
-        ? project.thumbnailRegular 
-        : project.thumbnailCarousel;
-    img.src = thumbnailUrl;
-    img.alt = project.title;
-    img.className = 'thumbnail-image';
-    
-    thumbnailDiv.appendChild(img);
-    card.appendChild(thumbnailDiv);
-    
-    return card;
-}
-
-// Staggered fade-in animation for cards
-function animateCards() {
-    // Animate featured grid cards
-    const featuredCards = document.querySelectorAll('.featured-grid .project-card');
-    featuredCards.forEach((card, index) => {
-        card.style.animationDelay = `${0.1 + index * 0.1}s`;
-        card.classList.add('card-fade-in');
-    });
-    
-    // Animate carousel cards
-    const carouselCards = document.querySelectorAll('.carousel-track .project-card:not(.carousel-clone)');
-    carouselCards.forEach((card, index) => {
-        card.style.animationDelay = `${0.3 + index * 0.05}s`;
-        card.classList.add('card-fade-in');
-    });
-}
-
 // Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Only render projects if we're on the main page
-    if (document.getElementById('featured-grid')) {
-        renderFeaturedProjects();
-        renderCarouselProjects();
-        
-        // Animate cards after they're rendered
-        setTimeout(() => {
-            animateCards();
-        }, 50);
-        
-        // Initialize carousel after cards are rendered
-        const carouselContainer = document.querySelector('.carousel-container');
-        const carouselTrack = document.getElementById('carousel-track');
-        const carouselPrev = document.getElementById('carousel-prev');
-        const carouselNext = document.getElementById('carousel-next');
+    const carouselContainer = document.querySelector('.carousel-container');
+    const carouselTrack = document.getElementById('carousel-track');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
 
-        if (carouselContainer && carouselTrack && carouselPrev && carouselNext) {
-            // Wait for images to load before initializing carousel
-            const images = carouselTrack.querySelectorAll('img');
-            let imagesLoaded = 0;
-            const totalImages = images.length;
-            
-            if (totalImages === 0) {
-                // No images, initialize immediately
-                setTimeout(() => {
-                    new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
-                }, 100);
-            } else {
-                images.forEach(img => {
-                    if (img.complete) {
+    if (carouselContainer && carouselTrack && carouselPrev && carouselNext) {
+        // Wait for images to load before initializing carousel
+        const images = carouselTrack.querySelectorAll('img');
+        let imagesLoaded = 0;
+        const totalImages = images.length;
+        
+        if (totalImages === 0) {
+            // No images, initialize immediately
+            setTimeout(() => {
+                new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
+            }, 100);
+        } else {
+            images.forEach(img => {
+                if (img.complete) {
+                    imagesLoaded++;
+                    if (imagesLoaded === totalImages) {
+                        setTimeout(() => {
+                            new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
+                        }, 100);
+                    }
+                } else {
+                    img.addEventListener('load', () => {
                         imagesLoaded++;
                         if (imagesLoaded === totalImages) {
                             setTimeout(() => {
                                 new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
                             }, 100);
                         }
-                    } else {
-                        img.addEventListener('load', () => {
-                            imagesLoaded++;
-                            if (imagesLoaded === totalImages) {
-                                setTimeout(() => {
-                                    new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
-                                }, 100);
-                            }
-                        });
-                        img.addEventListener('error', () => {
-                            imagesLoaded++;
-                            if (imagesLoaded === totalImages) {
-                                setTimeout(() => {
-                                    new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
-                                }, 100);
-                            }
-                        });
-                    }
-                });
-            }
+                    });
+                    img.addEventListener('error', () => {
+                        imagesLoaded++;
+                        if (imagesLoaded === totalImages) {
+                            setTimeout(() => {
+                                new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
+                            }, 100);
+                        }
+                    });
+                }
+            });
         }
     }
 });
-
