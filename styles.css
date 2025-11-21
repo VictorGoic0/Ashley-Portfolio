@@ -1,0 +1,418 @@
+/* Base Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Header Section */
+.header-section {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+}
+
+/* Portfolio Owner Information */
+.owner-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.owner-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.owner-description {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+/* Featured Projects Section */
+.featured-projects {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Project Cards */
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-thumbnail {
+    width: 100%;
+    padding-top: 75%; /* 4:3 aspect ratio */
+    position: relative;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.thumbnail-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .thumbnail-image {
+    transform: scale(1.05);
+}
+
+.card-title {
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+/* Carousel Section */
+.carousel-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.carousel-track .project-card {
+    flex: 0 0 calc(25% - 1.125rem);
+    min-width: 250px;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #333;
+    z-index: 10;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-button:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-button-prev {
+    left: -25px;
+}
+
+.carousel-button-next {
+    right: -25px;
+}
+
+.carousel-button span {
+    line-height: 1;
+}
+
+/* Project Detail Page */
+.project-nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #1a1a1a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background: #333;
+    transform: translateX(-4px);
+}
+
+.project-detail {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.project-media-container {
+    width: 100%;
+    margin-bottom: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+.project-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+.project-description p {
+    margin-bottom: 1rem;
+}
+
+/* Responsive Breakpoints */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .carousel-track .project-card {
+        flex: 0 0 calc(33.333% - 1rem);
+    }
+
+    .carousel-button-prev {
+        left: 10px;
+    }
+
+    .carousel-button-next {
+        right: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .owner-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header-section {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .owner-info {
+        padding: 3rem 1.5rem;
+    }
+
+    .owner-title {
+        font-size: 2rem;
+    }
+
+    .owner-description {
+        font-size: 1rem;
+    }
+
+    .featured-projects,
+    .carousel-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .carousel-track {
+        gap: 1rem;
+    }
+
+    .carousel-track .project-card {
+        flex: 0 0 calc(50% - 0.5rem);
+        min-width: 200px;
+    }
+
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+
+    .carousel-button-prev {
+        left: 5px;
+    }
+
+    .carousel-button-next {
+        right: 5px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .project-detail {
+        padding: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 2rem;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .carousel-track .project-card {
+        flex: 0 0 85%;
+    }
+
+    .owner-title {
+        font-size: 1.75rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="project-nav">
+        <a href="../index.html" class="back-button">← Back to Portfolio</a>
+    </nav>
+
+    <!-- Project Detail Content -->
+    <main class="project-detail">
+        <div class="project-media-container" id="project-media-container">
+            <!-- Main media (image or video) will be displayed here -->
+            <img id="project-image" class="project-image" src="" alt="Project image" style="display: none;">
+            <video id="project-video" class="project-video" controls style="display: none;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="project-content">
+            <h1 class="project-title" id="project-title">Project Title</h1>
+            <div class="project-description" id="project-description">
+                <p>Project description will be displayed here.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../script.js"></script>
+    <script>
+        // Load project data from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+        
+        if (projectId) {
+            // This will be implemented in Phase 2
+            // For now, this is the basic scaffold
+        }
+    </script>
+</body>
+</html>
+

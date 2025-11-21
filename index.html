@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashley Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section with Background Image -->
+    <header class="header-section" id="header-section">
+        <div class="header-background"></div>
+    </header>
+
+    <!-- Portfolio Owner Information -->
+    <section class="owner-info">
+        <h1 class="owner-title">Portfolio Owner Name</h1>
+        <p class="owner-description">A brief description about the portfolio owner, their work, and their creative vision. This section provides context about who they are and what they do.</p>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="featured-projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="featured-grid" id="featured-grid">
+            <!-- Project cards will be dynamically inserted here -->
+            <div class="project-card" data-project-id="1">
+                <div class="card-thumbnail">
+                    <img src="" alt="Project thumbnail" class="thumbnail-image">
+                </div>
+                <h3 class="card-title">Project Title</h3>
+            </div>
+            <div class="project-card" data-project-id="2">
+                <div class="card-thumbnail">
+                    <img src="" alt="Project thumbnail" class="thumbnail-image">
+                </div>
+                <h3 class="card-title">Project Title</h3>
+            </div>
+            <div class="project-card" data-project-id="3">
+                <div class="card-thumbnail">
+                    <img src="" alt="Project thumbnail" class="thumbnail-image">
+                </div>
+                <h3 class="card-title">Project Title</h3>
+            </div>
+            <div class="project-card" data-project-id="4">
+                <div class="card-thumbnail">
+                    <img src="" alt="Project thumbnail" class="thumbnail-image">
+                </div>
+                <h3 class="card-title">Project Title</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="carousel-section">
+        <h2 class="section-title">All Projects</h2>
+        <div class="carousel-container">
+            <button class="carousel-button carousel-button-prev" id="carousel-prev" aria-label="Previous projects">
+                <span>&#8249;</span>
+            </button>
+            <div class="carousel-wrapper" id="carousel-wrapper">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- Project cards will be dynamically inserted here -->
+                </div>
+            </div>
+            <button class="carousel-button carousel-button-next" id="carousel-next" aria-label="Next projects">
+                <span>&#8250;</span>
+            </button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
