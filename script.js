@@ -230,12 +230,34 @@ function createProjectCard(project, thumbnailType) {
     return card;
 }
 
+// Staggered fade-in animation for cards
+function animateCards() {
+    // Animate featured grid cards
+    const featuredCards = document.querySelectorAll('.featured-grid .project-card');
+    featuredCards.forEach((card, index) => {
+        card.style.animationDelay = `${0.1 + index * 0.1}s`;
+        card.classList.add('card-fade-in');
+    });
+    
+    // Animate carousel cards
+    const carouselCards = document.querySelectorAll('.carousel-track .project-card:not(.carousel-clone)');
+    carouselCards.forEach((card, index) => {
+        card.style.animationDelay = `${0.3 + index * 0.05}s`;
+        card.classList.add('card-fade-in');
+    });
+}
+
 // Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Only render projects if we're on the main page
     if (document.getElementById('featured-grid')) {
         renderFeaturedProjects();
         renderCarouselProjects();
+        
+        // Animate cards after they're rendered
+        setTimeout(() => {
+            animateCards();
+        }, 50);
         
         // Initialize carousel after cards are rendered
         const carouselContainer = document.querySelector('.carousel-container');
