@@ -209,9 +209,9 @@ function renderCarouselProjects() {
 }
 
 function createProjectCard(project, thumbnailType) {
-    const card = document.createElement('div');
+    const card = document.createElement('a');
+    card.href = `projects/${project.id}.html`;
     card.className = 'project-card';
-    card.setAttribute('data-project-id', project.id);
     
     const thumbnailDiv = document.createElement('div');
     thumbnailDiv.className = `card-thumbnail thumbnail-${thumbnailType}`;
@@ -227,33 +227,7 @@ function createProjectCard(project, thumbnailType) {
     thumbnailDiv.appendChild(img);
     card.appendChild(thumbnailDiv);
     
-    // Add click handler
-    card.addEventListener('click', () => {
-        navigateToProject(project.id);
-    });
-    
     return card;
-}
-
-// Navigation functionality
-function setupNavigation() {
-    // Click handlers are now added in createProjectCard
-    // But we also need to handle existing cards if they're in the HTML
-    const allCards = document.querySelectorAll('.project-card');
-    allCards.forEach(card => {
-        const projectId = card.getAttribute('data-project-id');
-        if (projectId) {
-            card.addEventListener('click', () => {
-                navigateToProject(projectId);
-            });
-        }
-    });
-}
-
-function navigateToProject(projectId) {
-    if (projectId) {
-        window.location.href = `projects/project-1.html?id=${projectId}`;
-    }
 }
 
 // Initialize carousel when DOM is loaded
@@ -311,8 +285,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
-    // Setup navigation (for any existing cards in HTML)
-    setupNavigation();
 });
 

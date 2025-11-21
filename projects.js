@@ -93,7 +93,7 @@ const projects = [
         title: 'Campaign',
         description: 'A comprehensive campaign video showcasing creative direction and visual storytelling.',
         mediaType: 'video',
-        mediaUrl: 'assets/videos/campaign.mov',
+        mediaUrl: 'assets/videos/campaign.mp4',
         thumbnailCarousel: 'assets/thumbnails/campaign_thumbnail_carousel.png'
     },
     {
@@ -101,7 +101,7 @@ const projects = [
         title: 'Creative Video Project',
         description: 'A dynamic video project featuring creative visuals and engaging motion design.',
         mediaType: 'video',
-        mediaUrl: 'assets/videos/copy_34bcb4fa-bd37-4a6f-9852-38b44ce3bbd9.mov',
+        mediaUrl: 'assets/videos/copy_34bcb4fa-bd37-4a6f-9852-38b44ce3bbd9.mp4',
         thumbnailCarousel: 'assets/thumbnails/copy_34bcb4fa-bd37-4a6f-9852-38b44ce3bbd9_thumbnail_carousel.png'
     },
     {
@@ -109,7 +109,7 @@ const projects = [
         title: 'Creative Video Project',
         description: 'A dynamic video project featuring creative visuals and engaging motion design.',
         mediaType: 'video',
-        mediaUrl: 'assets/videos/copy_78ce68e6-fc5e-49cd-8798-c7fd8aa31a7d.mov',
+        mediaUrl: 'assets/videos/copy_78ce68e6-fc5e-49cd-8798-c7fd8aa31a7d.mp4',
         thumbnailCarousel: 'assets/thumbnails/copy_78ce68e6-fc5e-49cd-8798-c7fd8aa31a7d_thumbnail_carousel.png'
     },
     {
@@ -117,7 +117,7 @@ const projects = [
         title: 'Creative Video Project',
         description: 'A dynamic video project featuring creative visuals and engaging motion design.',
         mediaType: 'video',
-        mediaUrl: 'assets/videos/copy_885ae6c7-2d2f-485b-98ec-54a8a31aaf46.mov',
+        mediaUrl: 'assets/videos/copy_885ae6c7-2d2f-485b-98ec-54a8a31aaf46.mp4',
         thumbnailCarousel: 'assets/thumbnails/copy_885ae6c7-2d2f-485b-98ec-54a8a31aaf46_thumbnail_carousel.png'
     },
     {
@@ -125,7 +125,7 @@ const projects = [
         title: 'Creative Video Project',
         description: 'A dynamic video project featuring creative visuals and engaging motion design.',
         mediaType: 'video',
-        mediaUrl: 'assets/videos/copy_dbb7b916-cdb6-41a0-b5b5-56cabb7b509a.mov',
+        mediaUrl: 'assets/videos/copy_dbb7b916-cdb6-41a0-b5b5-56cabb7b509a.mp4',
         thumbnailCarousel: 'assets/thumbnails/copy_dbb7b916-cdb6-41a0-b5b5-56cabb7b509a_thumbnail_carousel.png'
     },
     {
@@ -133,7 +133,7 @@ const projects = [
         title: 'Fall Campaign',
         description: 'A seasonal campaign video capturing the essence of autumn through creative visuals and storytelling.',
         mediaType: 'video',
-        mediaUrl: 'assets/videos/fall_campaign.mov',
+        mediaUrl: 'assets/videos/fall_campaign.mp4',
         thumbnailCarousel: 'assets/thumbnails/fall_campaign_thumbnail_carousel.png'
     },
     {
@@ -141,7 +141,7 @@ const projects = [
         title: 'Spring Campaign',
         description: 'A vibrant spring campaign video featuring fresh visuals and energetic motion design.',
         mediaType: 'video',
-        mediaUrl: 'assets/videos/spring_campaign.mov',
+        mediaUrl: 'assets/videos/spring_campaign.mp4',
         thumbnailCarousel: 'assets/thumbnails/spring_campaign_thumbnail_carousel.png'
     }
 ];
