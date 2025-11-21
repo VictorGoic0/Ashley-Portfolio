@@ -181,24 +181,72 @@ class Carousel {
     }
 }
 
+// Project rendering functions
+function renderFeaturedProjects() {
+    const featuredGrid = document.getElementById('featured-grid');
+    if (!featuredGrid) return;
+    
+    const featuredProjects = getFeaturedProjects();
+    featuredGrid.innerHTML = '';
+    
+    featuredProjects.forEach(project => {
+        const card = createProjectCard(project, 'regular');
+        featuredGrid.appendChild(card);
+    });
+}
+
+function renderCarouselProjects() {
+    const carouselTrack = document.getElementById('carousel-track');
+    if (!carouselTrack) return;
+    
+    const carouselProjects = getCarouselProjects();
+    carouselTrack.innerHTML = '';
+    
+    carouselProjects.forEach(project => {
+        const card = createProjectCard(project, 'carousel');
+        carouselTrack.appendChild(card);
+    });
+}
+
+function createProjectCard(project, thumbnailType) {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.setAttribute('data-project-id', project.id);
+    
+    const thumbnailDiv = document.createElement('div');
+    thumbnailDiv.className = `card-thumbnail thumbnail-${thumbnailType}`;
+    
+    const img = document.createElement('img');
+    const thumbnailUrl = thumbnailType === 'regular' 
+        ? project.thumbnailRegular 
+        : project.thumbnailCarousel;
+    img.src = thumbnailUrl;
+    img.alt = project.title;
+    img.className = 'thumbnail-image';
+    
+    thumbnailDiv.appendChild(img);
+    card.appendChild(thumbnailDiv);
+    
+    // Add click handler
+    card.addEventListener('click', () => {
+        navigateToProject(project.id);
+    });
+    
+    return card;
+}
+
 // Navigation functionality
 function setupNavigation() {
-    // Click handlers for featured project cards
-    const featuredCards = document.querySelectorAll('#featured-grid .project-card');
-    featuredCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const projectId = card.getAttribute('data-project-id');
-            navigateToProject(projectId);
-        });
-    });
-
-    // Click handlers for carousel project cards
-    const carouselCards = document.querySelectorAll('#carousel-track .project-card');
-    carouselCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const projectId = card.getAttribute('data-project-id');
-            navigateToProject(projectId);
-        });
+    // Click handlers are now added in createProjectCard
+    // But we also need to handle existing cards if they're in the HTML
+    const allCards = document.querySelectorAll('.project-card');
+    allCards.forEach(card => {
+        const projectId = card.getAttribute('data-project-id');
+        if (projectId) {
+            card.addEventListener('click', () => {
+                navigateToProject(projectId);
+            });
+        }
     });
 }
 
@@ -210,16 +258,61 @@ function navigateToProject(projectId) {
 
 // Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const carouselContainer = document.querySelector('.carousel-container');
-    const carouselTrack = document.getElementById('carousel-track');
-    const carouselPrev = document.getElementById('carousel-prev');
-    const carouselNext = document.getElementById('carousel-next');
+    // Only render projects if we're on the main page
+    if (document.getElementById('featured-grid')) {
+        renderFeaturedProjects();
+        renderCarouselProjects();
+        
+        // Initialize carousel after cards are rendered
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselTrack = document.getElementById('carousel-track');
+        const carouselPrev = document.getElementById('carousel-prev');
+        const carouselNext = document.getElementById('carousel-next');
 
-    if (carouselContainer && carouselTrack && carouselPrev && carouselNext) {
-        new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
+        if (carouselContainer && carouselTrack && carouselPrev && carouselNext) {
+            // Wait for images to load before initializing carousel
+            const images = carouselTrack.querySelectorAll('img');
+            let imagesLoaded = 0;
+            const totalImages = images.length;
+            
+            if (totalImages === 0) {
+                // No images, initialize immediately
+                setTimeout(() => {
+                    new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
+                }, 100);
+            } else {
+                images.forEach(img => {
+                    if (img.complete) {
+                        imagesLoaded++;
+                        if (imagesLoaded === totalImages) {
+                            setTimeout(() => {
+                                new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
+                            }, 100);
+                        }
+                    } else {
+                        img.addEventListener('load', () => {
+                            imagesLoaded++;
+                            if (imagesLoaded === totalImages) {
+                                setTimeout(() => {
+                                    new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
+                                }, 100);
+                            }
+                        });
+                        img.addEventListener('error', () => {
+                            imagesLoaded++;
+                            if (imagesLoaded === totalImages) {
+                                setTimeout(() => {
+                                    new Carousel(carouselContainer, carouselTrack, carouselPrev, carouselNext);
+                                }, 100);
+                            }
+                        });
+                    }
+                });
+            }
+        }
     }
 
-    // Setup navigation
+    // Setup navigation (for any existing cards in HTML)
     setupNavigation();
 });
 

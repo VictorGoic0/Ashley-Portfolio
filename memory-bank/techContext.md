@@ -9,6 +9,7 @@
 ## Development Tools
 - **ffmpeg**: Installed via Homebrew for video thumbnail generation
 - **pdf2image**: Python library for PDF to image conversion
+- **poppler**: Installed via Homebrew (required by pdf2image)
 - **sips**: macOS built-in tool for image processing
 - **Pillow**: Python library (dependency of pdf2image)
 
@@ -54,7 +55,7 @@ assets/
 ## Browser Compatibility
 - Modern browsers (Chrome, Firefox, Safari, Edge)
 - Responsive design tested for:
-  - Desktop: 1400px max-width containers
+  - Desktop: Full-width layout
   - Tablet: 1024px breakpoint
   - Mobile: 768px and 480px breakpoints
 

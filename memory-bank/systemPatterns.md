@@ -11,23 +11,29 @@ The portfolio follows a simple, static site architecture with:
 ### File Structure
 ```
 /
-├── index.html              # Main portfolio page
-├── styles.css              # All styling (no preprocessors)
-├── script.js               # All JavaScript (vanilla, no frameworks)
+├── index.html              # Main portfolio page (content populated)
+├── styles.css              # All styling (no preprocessors, full-width)
+├── script.js               # All JavaScript (vanilla, infinite scroll carousel)
+├── generate_thumbnails.sh  # Thumbnail generation script
 ├── projects/               # Individual project pages
 │   └── project-1.html      # Template for project details
 └── assets/
-    ├── images/             # Full-resolution images (including header)
+    ├── images/             # Full-resolution images (including header.png)
     ├── videos/             # Video files
     ├── pdfs/               # PDF documents
-    └── thumbnails/         # Generated thumbnails (643x450px)
+    └── thumbnails/         # Generated thumbnails (regular & carousel)
 ```
 
 ### Card System
-- **Featured Grid**: 2-column layout, 50px gap, uses `thumbnail-regular` (846×580px, ~1.46:1 ratio)
-- **Carousel**: Horizontal scrolling with `thumbnail-carousel` (16:9 aspect ratio)
+- **Featured Grid**: 2-column layout, 50px gap, full-width, uses `thumbnail-regular` (846×580px, ~1.46:1 ratio)
+  - Currently displays 4 image projects
+  - Cards use semantic IDs based on filenames
+- **Carousel**: Infinite scroll with `thumbnail-carousel` (16:9 aspect ratio, 400×225px desktop)
+  - Currently displays all 12 projects (5 PDFs + 7 videos)
+  - Seamless looping with cloned cards
 - **No Titles**: Cards display only thumbnail images (titles removed per design decision)
 - **Responsive**: Adapts to 1 column on mobile, maintains 2 columns on tablet/desktop
+- **Layout**: Full-width (no max-width constraints)
 
 ### Media Handling
 - **Thumbnail Types**:
@@ -45,7 +51,10 @@ The portfolio follows a simple, static site architecture with:
 ### Navigation Pattern
 - **Card Clicks**: All project cards navigate to detail pages via URL parameters (`?id=X`)
 - **Back Navigation**: Project pages include back button to return to main portfolio
-- **Carousel**: Horizontal scrolling with prev/next buttons, touch/swipe support
+- **Carousel**: Infinite scroll with prev/next buttons, touch/swipe support
+  - Clones cards at beginning and end for seamless looping
+  - Automatically jumps to real cards when reaching clones
+  - No visible boundaries - continuous scrolling experience
 
 ## Design Patterns
 
@@ -55,7 +64,10 @@ The portfolio follows a simple, static site architecture with:
 - Responsive breakpoints at bottom (tablet: 1024px, mobile: 768px, small mobile: 480px)
 
 ### JavaScript Structure
-- **Carousel Class**: Encapsulates carousel functionality with methods for scrolling, navigation
+- **Carousel Class**: Encapsulates carousel functionality with infinite scroll
+  - Clones cards for seamless looping
+  - Handles transition events to jump between real and cloned cards
+  - Methods for scrolling, navigation, dimension calculation
 - **Event Handlers**: Centralized setup for card clicks and navigation
 - **DOM Ready**: All initialization happens on `DOMContentLoaded`
 
