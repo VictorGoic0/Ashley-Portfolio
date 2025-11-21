@@ -24,9 +24,9 @@
 ```
 assets/
 ├── images/          # Full-resolution images (including header.png)
-├── videos/          # Video files (.mov, .mp4)
+├── videos/          # Video files (.mp4 - browser-compatible)
 ├── pdfs/            # PDF documents
-└── thumbnails/      # Generated thumbnails (643×450px)
+└── thumbnails/      # Generated thumbnails (regular: 846×580px, carousel: 16:9)
 ```
 
 ## Thumbnail Specifications
@@ -54,6 +54,7 @@ assets/
 
 ## Browser Compatibility
 - Modern browsers (Chrome, Firefox, Safari, Edge)
+- Video format: MP4 (H.264 codec) for universal browser support
 - Responsive design tested for:
   - Desktop: Full-width layout
   - Tablet: 1024px breakpoint

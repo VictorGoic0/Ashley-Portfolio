@@ -3,23 +3,27 @@
 ## Architecture Overview
 The portfolio follows a simple, static site architecture with:
 - **Main Page** (`index.html`): Landing page with header, owner info, featured projects grid, and carousel
-- **Project Pages** (`projects/project-*.html`): Individual project detail pages
-- **Assets Organization**: Structured directories for images, videos, PDFs, and thumbnails
+- **Project Pages** (`projects/{project-id}.html`): 17 individual project detail pages
+- **Project Data** (`projects.js`): Centralized data structure for all projects
+- **Assets Organization**: Structured directories for images, videos (MP4), PDFs, and thumbnails
 
 ## Key Technical Decisions
 
 ### File Structure
 ```
 /
-├── index.html              # Main portfolio page (content populated)
+├── index.html              # Main portfolio page
 ├── styles.css              # All styling (no preprocessors, full-width)
-├── script.js               # All JavaScript (vanilla, infinite scroll carousel)
+├── script.js               # Carousel and navigation logic
+├── projects.js             # Project data structure (17 projects)
 ├── generate_thumbnails.sh  # Thumbnail generation script
-├── projects/               # Individual project pages
-│   └── project-1.html      # Template for project details
+├── projects/               # Individual project pages (17 files)
+│   ├── ashley_zheng_band-aid_x_spiderman.html
+│   ├── campaign.html
+│   └── ... (15 more)
 └── assets/
     ├── images/             # Full-resolution images (including header.png)
-    ├── videos/             # Video files
+    ├── videos/             # Video files (.mp4 format)
     ├── pdfs/               # PDF documents
     └── thumbnails/         # Generated thumbnails (regular & carousel)
 ```
@@ -43,18 +47,35 @@ The portfolio follows a simple, static site architecture with:
   - **Images** → `thumbnail-regular` (used in featured grid)
   - **PDFs** → `thumbnail-carousel` (wide format, carousel only)
   - **Videos** → `thumbnail-carousel` (wide format, carousel only)
+- **Video Format**: MP4 (H.264 codec, AAC audio) for universal browser support
 - **Naming Convention**: 
   - Regular: `{filename}_thumbnail_regular.{ext}`
   - Carousel: `{filename}_thumbnail_carousel.{ext}`
 - **Thumbnail Generation**: Script uses `sips` (images), `ffmpeg` (videos), `pdf2image` (PDFs)
+- **Video Conversion**: ffmpeg converts .mov to .mp4 with H.264 codec and faststart flag
 
 ### Navigation Pattern
-- **Card Clicks**: All project cards navigate to detail pages via URL parameters (`?id=X`)
+- **Card Clicks**: All project cards link directly to project HTML files (`projects/{id}.html`)
 - **Back Navigation**: Project pages include back button to return to main portfolio
 - **Carousel**: Infinite scroll with prev/next buttons, touch/swipe support
   - Clones cards at beginning and end for seamless looping
   - Automatically jumps to real cards when reaching clones
   - No visible boundaries - continuous scrolling experience
+
+### Project Data Structure
+- **Centralized Data** (`projects.js`): Single source of truth for all projects
+- **Project Object**: Each project contains:
+  - `id`: Unique identifier (matches filename)
+  - `title`: Display title
+  - `description`: Project description
+  - `mediaType`: 'image', 'video', or 'pdf'
+  - `mediaUrl`: Path to full media file
+  - `thumbnailRegular`: Path to regular thumbnail (images only)
+  - `thumbnailCarousel`: Path to carousel thumbnail (all types)
+- **Helper Functions**: 
+  - `getProjectById(id)`: Retrieve specific project
+  - `getFeaturedProjects()`: Get first 4 image projects
+  - `getCarouselProjects()`: Get all PDFs and videos
 
 ## Design Patterns
 
