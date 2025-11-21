@@ -1,0 +1,42 @@
+Description: Core project rules for Ashley Portfolio Website
+Globs: **/*
+
+# Ashley Portfolio Website - Project Rules
+
+## Technology Constraints
+- **NO FRAMEWORKS**: Pure HTML, CSS, and vanilla JavaScript only
+- **NO DEPENDENCIES**: No external libraries, CDN links, or npm packages
+- **STATIC SITE**: All files are static, no build process required
+
+## File Naming Standards
+- All asset files: lowercase with underscores (e.g., `ashley_zheng_band-aid_x_spiderman.png`)
+- Thumbnails: Original filename + `_thumb` suffix
+- Header image: Always named `header.png` in `assets/images/`
+
+## Card Dimensions
+- **Desktop**: 643px wide × 450px tall (wider than tall, ~3:2 ratio)
+- **Layout**: 2 columns, 50px gap (equal horizontal and vertical spacing)
+- **No Titles**: Cards display only thumbnail images, no text overlays
+
+## Asset Organization
+- `assets/images/` - Full-resolution images (including header)
+- `assets/videos/` - Video files
+- `assets/pdfs/` - PDF documents  
+- `assets/thumbnails/` - Generated thumbnails (643×450px)
+
+## Code Style
+- Semantic HTML5 markup
+- CSS: Component-based organization, responsive breakpoints at bottom
+- JavaScript: Vanilla JS, class-based organization where appropriate
+- Consistent indentation and formatting
+
+## Responsive Breakpoints
+- Desktop: Full 2-column layout
+- Tablet: 1024px breakpoint (maintains 2 columns, adjusted heights)
+- Mobile: 768px breakpoint (single column)
+- Small Mobile: 480px breakpoint
+
+## Memory Bank
+- Always read memory bank files at start of tasks
+- Update `activeContext.md` and `progress.md` after significant changes
+- Document architectural decisions in `systemPatterns.md`
