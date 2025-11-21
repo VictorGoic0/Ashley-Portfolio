@@ -14,7 +14,8 @@ Globs: **/*
 - Header image: Always named `header.png` in `assets/images/`
 
 ## Card Dimensions
-- **Desktop**: 643px wide × 450px tall (wider than tall, ~3:2 ratio)
+- **Featured Grid (thumbnail-regular)**: 846px wide × 580px tall (~1.46:1 ratio) - for images
+- **Carousel (thumbnail-carousel)**: 16:9 aspect ratio - for PDFs and videos
 - **Layout**: 2 columns, 50px gap (equal horizontal and vertical spacing)
 - **No Titles**: Cards display only thumbnail images, no text overlays
 
@@ -22,7 +23,17 @@ Globs: **/*
 - `assets/images/` - Full-resolution images (including header)
 - `assets/videos/` - Video files
 - `assets/pdfs/` - PDF documents  
-- `assets/thumbnails/` - Generated thumbnails (643×450px)
+- `assets/thumbnails/` - Generated thumbnails
+  - Regular: 846×580px (images for featured grid)
+  - Carousel: 16:9 (PDFs and videos for carousel)
+
+## Thumbnail Logic
+- **Images** (tall) → `thumbnail-regular` (846×580px) → Featured grid
+  - Naming: `{filename}_thumbnail_regular.{ext}`
+- **PDFs** (wide) → `thumbnail-carousel` (16:9) → Carousel only
+  - Naming: `{filename}_thumbnail_carousel.png`
+- **Videos** (wide) → `thumbnail-carousel` (16:9) → Carousel only
+  - Naming: `{filename}_thumbnail_carousel.png`
 
 ## Code Style
 - Semantic HTML5 markup

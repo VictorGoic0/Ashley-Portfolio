@@ -14,7 +14,9 @@
 
 ## File Naming Standards
 - All asset files: lowercase with underscores (e.g., `ashley_zheng_band-aid_x_spiderman.png`)
-- Thumbnails: Original filename + `_thumb` suffix (e.g., `ashley_zheng_band-aid_x_spiderman_thumb.png`)
+- Thumbnails: Original filename + `_thumbnail_regular` or `_thumbnail_carousel` suffix
+  - Regular: `{filename}_thumbnail_regular.{ext}` (e.g., `ashley_zheng_band-aid_x_spiderman_thumbnail_regular.png`)
+  - Carousel: `{filename}_thumbnail_carousel.png` (e.g., `campaign_thumbnail_carousel.png`)
 - Header image: Named `header.png` in `assets/images/`
 
 ## Asset Organization
@@ -27,10 +29,27 @@ assets/
 ```
 
 ## Thumbnail Specifications
-- **Dimensions**: 643px wide × 450px tall (wider than tall, ~3:2 ratio)
-- **Format**: PNG for videos/PDFs, original format for images
-- **Generation**: Automated via `generate_thumbnails.sh` script
-- **Coverage**: All non-header images, all videos, all PDFs
+
+### Thumbnail-Regular (Featured Grid)
+- **Dimensions**: 846px wide × 580px tall
+- **Aspect Ratio**: ~1.46:1 (approximately 3:2 but slightly wider)
+- **Usage**: Featured projects grid (images only)
+- **Format**: Original image format (PNG/JPG)
+
+### Thumbnail-Carousel (Carousel Section)
+- **Dimensions**: 16:9 aspect ratio (width varies, height = width × 9/16)
+- **Usage**: Carousel section (PDFs and videos)
+- **Format**: PNG (for videos and PDFs)
+
+### Media Type Mapping
+- **Images** (tall format) → `thumbnail-regular` (846×580px) - used in featured grid
+- **PDFs** (wide format) → `thumbnail-carousel` (16:9) - carousel only
+- **Videos** (wide format) → `thumbnail-carousel` (16:9) - carousel only
+
+### Generation
+- **Script**: `generate_thumbnails.sh`
+- **Tools**: `sips` (images), `ffmpeg` (videos), `pdf2image` (PDFs)
+- **Coverage**: All non-header images get regular thumbnails; all videos and PDFs get carousel thumbnails
 
 ## Browser Compatibility
 - Modern browsers (Chrome, Firefox, Safari, Edge)

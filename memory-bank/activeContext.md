@@ -4,21 +4,22 @@
 **Phase 1 Complete** - Core structure is built. Currently preparing for Phase 2: Content Integration.
 
 ## Recent Changes
-1. **Card Design Refinement**: 
-   - Removed card titles (images only)
-   - Set dimensions to 643×450px (wider than tall)
-   - 2-column grid with 50px spacing
-   - Equal spacing horizontally and vertically
+1. **Thumbnail System Differentiation**:
+   - **thumbnail-regular**: 846×580px (~1.46:1 ratio) for featured grid - images only
+   - **thumbnail-carousel**: 16:9 aspect ratio for carousel - PDFs and videos
+   - Media type mapping: Images → regular, PDFs/Videos → carousel
+   - Updated CSS to support both thumbnail types
 
-2. **Asset Organization**:
+2. **Card Design**:
+   - Featured grid uses regular thumbnails (big squares)
+   - Carousel uses carousel thumbnails (rectangles, 16:9)
+   - 2-column grid with 50px spacing maintained
+   - No titles on cards (images only)
+
+3. **Asset Organization**:
    - Created structured asset directories (images, videos, pdfs, thumbnails)
    - Standardized all file names (lowercase, underscores)
    - Added header image to assets/images/
-
-3. **Thumbnail System**:
-   - Created `generate_thumbnails.sh` script
-   - Installed required tools (ffmpeg, pdf2image)
-   - Script configured for 643×450px thumbnails
 
 ## Next Steps
 1. **Generate Thumbnails**: Run thumbnail generation script for all assets

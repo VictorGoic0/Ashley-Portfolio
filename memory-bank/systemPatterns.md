@@ -24,14 +24,22 @@ The portfolio follows a simple, static site architecture with:
 ```
 
 ### Card System
-- **Featured Grid**: 2-column layout, 50px gap, cards are 643px wide × 450px tall
-- **Carousel**: Horizontal scrolling with same card dimensions
+- **Featured Grid**: 2-column layout, 50px gap, uses `thumbnail-regular` (846×580px, ~1.46:1 ratio)
+- **Carousel**: Horizontal scrolling with `thumbnail-carousel` (16:9 aspect ratio)
 - **No Titles**: Cards display only thumbnail images (titles removed per design decision)
 - **Responsive**: Adapts to 1 column on mobile, maintains 2 columns on tablet/desktop
 
 ### Media Handling
-- **Thumbnails**: All non-header media gets 643×450px thumbnails generated automatically
-- **Naming Convention**: All files lowercase with underscores (e.g., `ashley_zheng_band-aid_x_spiderman.png`)
+- **Thumbnail Types**:
+  - `thumbnail-regular`: 846×580px (big squares, ~1.46:1 ratio) - for images (tall format)
+  - `thumbnail-carousel`: 16:9 aspect ratio - for PDFs and videos (wide format)
+- **Media Type Mapping**:
+  - **Images** → `thumbnail-regular` (used in featured grid)
+  - **PDFs** → `thumbnail-carousel` (wide format, carousel only)
+  - **Videos** → `thumbnail-carousel` (wide format, carousel only)
+- **Naming Convention**: 
+  - Regular: `{filename}_thumbnail_regular.{ext}`
+  - Carousel: `{filename}_thumbnail_carousel.{ext}`
 - **Thumbnail Generation**: Script uses `sips` (images), `ffmpeg` (videos), `pdf2image` (PDFs)
 
 ### Navigation Pattern
