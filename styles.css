@@ -152,17 +152,17 @@ h3 {
     letter-spacing: -0.02em;
 }
 
-/* Featured Projects Section */
-.featured-projects {
+/* Project Sections */
+.project-section {
     width: 100%;
     padding: 4rem 2rem;
 }
 
-.featured-projects .section-title {
+.project-section .section-title {
     animation: fadeIn 0.8s ease-out 0.3s both;
 }
 
-.featured-grid {
+.project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
@@ -202,11 +202,6 @@ h3 {
     height: 580px; /* 846×580px (~1.46:1 ratio) */
 }
 
-/* Carousel thumbnails (PDFs and videos) */
-.card-thumbnail.thumbnail-carousel {
-    width: 100%;
-    height: 225px; /* 16:9 aspect ratio (400px wide × 225px tall) */
-}
 
 .thumbnail-image {
     position: absolute;
@@ -223,88 +218,6 @@ h3 {
 }
 
 
-/* Carousel Section */
-.carousel-section {
-    width: 100%;
-    padding: 4rem 2rem;
-}
-
-.carousel-section .section-title {
-    animation: fadeIn 0.8s ease-out 0.5s both;
-}
-
-.carousel-container {
-    position: relative;
-    width: 100%;
-}
-
-.carousel-wrapper {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 1.5rem;
-    transition: transform 0.5s ease;
-    will-change: transform;
-}
-
-.carousel-track .project-card {
-    flex: 0 0 400px; /* Fixed width for 16:9 carousel thumbnails */
-    min-width: 300px;
-}
-
-.carousel-track .project-card .thumbnail-carousel {
-    width: 100%;
-    height: 225px; /* 16:9 aspect ratio (400px wide × 225px tall) */
-}
-
-/* Carousel Navigation Buttons */
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #2c2c2c;
-    z-index: 10;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(8px);
-}
-
-.carousel-button:hover {
-    background: #ffffff;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    border-color: rgba(0, 0, 0, 0.12);
-}
-
-.carousel-button:active {
-    transform: translateY(-50%) scale(0.95);
-}
-
-.carousel-button-prev {
-    left: -25px;
-}
-
-.carousel-button-next {
-    right: -25px;
-}
-
-.carousel-button span {
-    line-height: 1;
-}
 
 /* Project Detail Page */
 .project-nav {
@@ -473,34 +386,13 @@ h3 {
 
 /* Tablet */
 @media (max-width: 1024px) {
-    .featured-grid {
+    .project-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
     }
     
     .card-thumbnail.thumbnail-regular {
         height: 480px; /* Slightly smaller on tablet, maintaining aspect ratio */
-    }
-    
-    .carousel-track .project-card {
-        flex: 0 0 350px; /* Smaller carousel cards on tablet */
-    }
-    
-    .carousel-track .project-card .thumbnail-carousel {
-        width: 100%;
-        height: 197px; /* 16:9 aspect ratio (350px wide × 197px tall) */
-    }
-
-    .carousel-track .project-card {
-        flex: 0 0 calc(50% - 25px); /* Maintain 2 per line */
-    }
-
-    .carousel-button-prev {
-        left: 10px;
-    }
-
-    .carousel-button-next {
-        right: 10px;
     }
 
     .project-media-container {
@@ -536,50 +428,17 @@ h3 {
         font-size: 1rem;
     }
 
-    .featured-projects,
-    .carousel-section {
+    .project-section {
         padding: 3rem 1.5rem;
     }
 
-    .featured-grid {
+    .project-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
     .card-thumbnail.thumbnail-regular {
         height: 350px; /* Smaller on mobile, maintaining aspect ratio */
-    }
-    
-    .carousel-track .project-card {
-        flex: 0 0 280px; /* Smaller carousel cards on mobile */
-    }
-    
-    .carousel-track .project-card .thumbnail-carousel {
-        width: 100%;
-        height: 158px; /* 16:9 aspect ratio (280px wide × 158px tall) */
-    }
-
-    .carousel-track {
-        gap: 1rem;
-    }
-
-    .carousel-track .project-card {
-        flex: 0 0 calc(50% - 25px); /* 2 per line with 50px gap */
-        min-width: 200px;
-    }
-
-    .carousel-button {
-        width: 40px;
-        height: 40px;
-        font-size: 1.25rem;
-    }
-
-    .carousel-button-prev {
-        left: 5px;
-    }
-
-    .carousel-button-next {
-        right: 5px;
     }
 
     .section-title {
@@ -623,10 +482,6 @@ h3 {
 
 /* Small Mobile */
 @media (max-width: 480px) {
-    .carousel-track .project-card {
-        flex: 0 0 85%;
-    }
-
     .owner-title {
         font-size: 1.75rem;
     }
