@@ -4,22 +4,20 @@
 
 ### Phase 1: Core Structure ✅ COMPLETE
 - **HTML Structure**: 
-  - Main page with header, owner info, featured grid, carousel
+  - Main page with header, owner info, three category sections (Print Ads, Line Sheets, Video Edits)
   - Project detail page template
   - Semantic markup throughout
   
 - **CSS Styling**:
   - Responsive design (desktop, tablet, mobile)
-  - Card grid: 2 columns, 643×450px cards, 50px gap
+  - Card grid: 2 columns, 50px gap, full-width
   - Header section with background image support
-  - Carousel styling with navigation buttons
+  - Three-section layout with consistent grid styling
   - Hover states and transitions
   - Project detail page scaffold
 
 - **JavaScript Functionality**:
-  - Carousel class with horizontal scrolling
-  - Navigation controls (prev/next buttons)
-  - Touch/swipe support for mobile
+  - Minimal JavaScript (carousel removed)
   - Click handlers for project cards
   - Navigation to project detail pages
   - Back button functionality
@@ -33,16 +31,17 @@
 - Generation script created (`generate_thumbnails.sh`)
 - Required tools installed (ffmpeg, pdf2image, poppler)
 - All thumbnails generated:
-  - 4 regular thumbnails (846×580px) for featured grid
-  - 12 carousel thumbnails (16:9) for carousel
+  - Regular thumbnails (846×580px) for grid sections
+  - Carousel thumbnails (16:9) available but not used in current layout
 - Script uses correct dimensions and naming convention
 
 ### Content Display ✅ COMPLETE
-- Featured grid: 4 image projects displayed with thumbnails
-- Carousel: All 12 projects (5 PDFs + 7 videos) displayed
+- Print Ads section: 7 projects displayed with thumbnails
+- Line Sheets section: 3 projects displayed with thumbnails
+- Video Edits section: 7 projects displayed with thumbnails
 - Header image active and displayed
 - All cards use semantic IDs based on filenames
-- Infinite scroll carousel implemented and working
+- All 17 projects visible on main page
 
 ### Project Data & Pages ✅ COMPLETE
 - `projects.js` created with 17 projects
@@ -62,6 +61,8 @@
 - Full-width layout (removed max-width constraints)
 - Cards expand to full screen width
 - Responsive breakpoints maintained
+- Three-section category-based layout implemented
+- Carousel removed, replaced with static grid sections
 
 ## What's Left to Build
 
