@@ -4,7 +4,14 @@
 **Layout Reorganization Complete** - Portfolio restructured into three category-based sections. All 17 projects now visible and organized by project type.
 
 ## Recent Changes
-1. **Layout Restructure (Latest)**:
+1. **Project & Asset Renames (Latest)**:
+   - All project pages, thumbnails, images, PDFs, and videos renamed to kebab-case (dashes) for SEO
+   - Print Ads: spider-man-band-aid, prose, anythingec-detailing-supplies, anythingec-car-meet, ferrero-rocher, little-caesars-pizza-ad, starke-technologies
+   - Line Sheets: eden-presley-mantra, eden-presley-one-of-a-kind, eden-presley-rock
+   - Video Edits: campaign, creative-video-project-1 through 4, fall-campaign, spring-campaign
+   - Index and all project pages updated to reference new paths; no `projects.js`—index.html is source of truth for links and thumbnails
+
+2. **Layout Restructure**:
    - Removed "All Projects" carousel section
    - Renamed "Featured Projects" to "Print Ads" section
    - Added "Line Sheets" section (3 projects)
@@ -13,20 +20,20 @@
    - All 17 projects now visible: 7 Print Ads, 3 Line Sheets, 7 Video Edits
    - Removed all carousel-related CSS and JavaScript
 
-2. **Project Data Structure Implemented**:
+3. **Project Data Structure (legacy)**:
    - Created `projects.js` with centralized project data
    - 17 total projects: 5 images, 5 PDFs, 7 videos
    - Each project has: id, title, description, mediaType, mediaUrl, thumbnails
    - Helper functions for filtering and retrieving projects
 
-3. **Dynamic Content Generation**:
+4. **Project Detail Pages**:
    - All 17 project detail pages generated automatically
    - Pages display appropriate media (image, video, PDF)
    - Video players with controls and preload metadata
    - PDF embedded viewers with fallback download links
    - Consistent navigation back to portfolio
 
-4. **Video Format Conversion**:
+5. **Video Format Conversion**:
    - All videos converted from .mov to .mp4 (H.264 codec)
    - Universal browser compatibility (Chrome, Firefox, Edge, Safari)
    - Original .mov files removed
@@ -44,7 +51,7 @@
 - **Layout Structure**: Three category-based sections (Print Ads, Line Sheets, Video Edits)
 - **Card Layout**: 2-column grid, 50px gap, no titles (image-only cards)
 - **Thumbnail Sizes**: All sections use `thumbnail-regular` class (846×580px, ~1.46:1 ratio)
-- **File Naming**: All lowercase with underscores, `_thumbnail_regular` or `_thumbnail_carousel` suffix
+- **File Naming**: Kebab-case (dashes) for SEO—project HTML, thumbnails, images, PDFs, and videos use dashes (e.g. `spider-man-band-aid.html`, `anythingec-car-meet-thumbnail.png`, `eden-presley-mantra.pdf`)
 - **Project Distribution**: 
   - Print Ads: 7 projects (images and print ad PDFs)
   - Line Sheets: 3 projects (PDF line sheets)
@@ -60,8 +67,7 @@
 - ✅ All thumbnails generated and in place
 - ✅ Content populated (7 Print Ads, 3 Line Sheets, 7 Video Edits)
 - ✅ Header image active
-- ✅ Project data structure defined (`projects.js`)
-- ✅ All 17 project detail pages generated and functional
+- ✅ All 17 project detail pages present and functional (links and assets in index.html; no projects.js in use)
 - ✅ Videos converted to browser-compatible MP4 format
 - ✅ PDF and video display working in project pages
 - ✅ All 17 projects visible on main page

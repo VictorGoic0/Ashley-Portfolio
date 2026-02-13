@@ -14,11 +14,12 @@
 - **Pillow**: Python library (dependency of pdf2image)
 
 ## File Naming Standards
-- All asset files: lowercase with underscores (e.g., `ashley_zheng_band-aid_x_spiderman.png`)
-- Thumbnails: Original filename + `_thumbnail_regular` or `_thumbnail_carousel` suffix
-  - Regular: `{filename}_thumbnail_regular.{ext}` (e.g., `ashley_zheng_band-aid_x_spiderman_thumbnail_regular.png`)
-  - Carousel: `{filename}_thumbnail_carousel.png` (e.g., `campaign_thumbnail_carousel.png`)
-- Header image: Named `header.png` in `assets/images/`
+- **Kebab-case (dashes)** for SEO: project HTML, thumbnails, images, PDFs, videos (e.g. `spider-man-band-aid.html`, `anythingec-car-meet-thumbnail.png`, `eden-presley-mantra.pdf`, `creative-video-project-1.mp4`)
+- **Project pages**: `projects/{slug}.html` (e.g. `ferrero-rocher.html`, `little-caesars-pizza-ad.html`)
+- **Thumbnails**: `assets/thumbnails/{slug}-thumbnail.{ext}` (e.g. `campaign-thumbnail.png`, `starke-technologies-thumbnail.jpg`)
+- **Images**: `assets/images/{slug}-image.{ext}` or `header.png`
+- **PDFs**: `assets/pdfs/{slug}.pdf`; **Videos**: `assets/videos/{slug}.mp4`
+- Header image: `header.png` in `assets/images/`
 
 ## Asset Organization
 ```

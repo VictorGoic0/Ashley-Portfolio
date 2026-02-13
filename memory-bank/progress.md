@@ -24,8 +24,8 @@
 
 ### Asset Organization ✅
 - Directory structure created (images, videos, pdfs, thumbnails)
-- All files renamed to lowercase with underscores
-- Header image added to assets/images/
+- All project and asset filenames use kebab-case (dashes) for SEO
+- Header image in assets/images/
 
 ### Thumbnail System ✅ COMPLETE
 - Generation script created (`generate_thumbnails.sh`)
@@ -44,12 +44,12 @@
 - All 17 projects visible on main page
 
 ### Project Data & Pages ✅ COMPLETE
-- `projects.js` created with 17 projects
-- All 17 project detail pages generated
+- All 17 project detail pages present; index.html holds links and thumbnail paths (no projects.js in use)
 - Video display working (MP4 format with HTML5 player)
-- PDF display working (iframe embed with download fallback)
+- PDF display working (PDF.js or iframe with download fallback where used)
 - Image display working (full-resolution images)
 - All pages have back navigation to portfolio
+- Naming: kebab-case throughout (e.g. spider-man-band-aid.html, creative-video-project-1.mp4, eden-presley-mantra.pdf)
 
 ### Video Format Conversion ✅ COMPLETE
 - All 7 videos converted from .mov to .mp4

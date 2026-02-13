@@ -12,20 +12,30 @@ The portfolio follows a simple, static site architecture with:
 ### File Structure
 ```
 /
-├── index.html              # Main portfolio page (three-section layout)
+├── index.html              # Main portfolio page (three-section layout); source of truth for project links and thumbnails
 ├── styles.css              # All styling (no preprocessors, full-width, grid-based)
 ├── script.js               # Minimal navigation logic (carousel removed)
-├── projects.js             # Project data structure (17 projects)
-├── generate_thumbnails.sh  # Thumbnail generation script
-├── projects/               # Individual project pages (17 files)
-│   ├── ashley_zheng_band-aid_x_spiderman.html
+├── generate_thumbnails.sh  # Thumbnail generation script (if used)
+├── projects/               # Individual project pages (17 files, kebab-case names)
+│   ├── spider-man-band-aid.html
+│   ├── prose.html
+│   ├── anythingec-detailing-supplies.html
+│   ├── anythingec-car-meet.html
+│   ├── ferrero-rocher.html
+│   ├── little-caesars-pizza-ad.html
+│   ├── starke-technologies.html
+│   ├── eden-presley-mantra.html
+│   ├── eden-presley-one-of-a-kind.html
+│   ├── eden-presley-rock.html
 │   ├── campaign.html
-│   └── ... (15 more)
+│   ├── creative-video-project-1.html … creative-video-project-4.html
+│   ├── fall-campaign.html
+│   └── spring-campaign.html
 └── assets/
-    ├── images/             # Full-resolution images (including header.png)
-    ├── videos/             # Video files (.mp4 format)
-    ├── pdfs/               # PDF documents
-    └── thumbnails/         # Generated thumbnails (regular & carousel)
+    ├── images/             # Full-resolution images (e.g. {slug}-image.png, header.png)
+    ├── videos/             # Video files (.mp4, kebab-case)
+    ├── pdfs/               # PDF documents (kebab-case)
+    └── thumbnails/         # Thumbnails ({slug}-thumbnail.png or .jpg)
 ```
 
 ### Card System
@@ -47,9 +57,7 @@ The portfolio follows a simple, static site architecture with:
   - All sections use `thumbnail-regular` class regardless of media type
   - Thumbnails can be from regular or carousel sources depending on what's available
 - **Video Format**: MP4 (H.264 codec, AAC audio) for universal browser support
-- **Naming Convention**: 
-  - Regular: `{filename}_thumbnail_regular.{ext}`
-  - Carousel: `{filename}_thumbnail_carousel.{ext}`
+- **Naming Convention**: Kebab-case; thumbnails `{slug}-thumbnail.{ext}` (e.g. `spider-man-band-aid-thumbnail.png`, `campaign-thumbnail.png`)
 - **Thumbnail Generation**: Script uses `sips` (images), `ffmpeg` (videos), `pdf2image` (PDFs)
 - **Video Conversion**: ffmpeg converts .mov to .mp4 with H.264 codec and faststart flag
 
@@ -60,20 +68,9 @@ The portfolio follows a simple, static site architecture with:
   - No scrolling required - all projects immediately visible
   - Simple, straightforward navigation
 
-### Project Data Structure
-- **Centralized Data** (`projects.js`): Single source of truth for all projects
-- **Project Object**: Each project contains:
-  - `id`: Unique identifier (matches filename)
-  - `title`: Display title
-  - `description`: Project description
-  - `mediaType`: 'image', 'video', or 'pdf'
-  - `mediaUrl`: Path to full media file
-  - `thumbnailRegular`: Path to regular thumbnail (images only)
-  - `thumbnailCarousel`: Path to carousel thumbnail (all types)
-- **Helper Functions**: 
-  - `getProjectById(id)`: Retrieve specific project
-  - `getFeaturedProjects()`: Get first 4 image projects
-  - `getCarouselProjects()`: Get all PDFs and videos
+### Project Data / Content Source
+- **Index as source of truth**: `index.html` contains all project card links (`projects/{slug}.html`) and thumbnail paths (`assets/thumbnails/{slug}-thumbnail.{ext}`). No `projects.js` in use.
+- **Project pages**: Each project HTML file references its own media (image path, PDF path, or video source) using kebab-case asset names.
 
 ## Design Patterns
 
