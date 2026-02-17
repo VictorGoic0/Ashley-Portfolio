@@ -1,0 +1,188 @@
+// Project Detail Pages
+// Phase 2A - Ashley Portfolio
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// PROJECT NAVIGATION
+// ============================================
+
+.project-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  @include backdrop-blur;
+  border-bottom: 1px solid rgba($color-border, 0.5);
+  padding: $spacing-md $spacing-lg;
+
+  @include mobile {
+    padding: $spacing-sm $spacing-md;
+  }
+}
+
+.back-button {
+  @include body;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: $color-text-secondary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: all $transition-base;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-base;
+
+  &:hover {
+    color: $color-primary;
+    background: rgba($color-primary, 0.1);
+    transform: translateX(-4px);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+// ============================================
+// PROJECT DETAIL LAYOUT
+// ============================================
+
+.project-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-3xl $spacing-lg $spacing-4xl;
+
+  @include mobile {
+    padding: $spacing-2xl $spacing-md $spacing-3xl;
+  }
+}
+
+// ============================================
+// MEDIA CONTAINERS
+// ============================================
+
+.project-media-container {
+  margin-bottom: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+  background: $color-surface;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+    border-radius: $border-radius-md;
+  }
+}
+
+// Image styling
+.project-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Video styling
+.project-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+}
+
+// PDF container styling
+.project-pdf-container {
+  margin-bottom: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+  background: $color-neutral-100;
+  padding: $spacing-lg;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+  }
+}
+
+.pdf-pages-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  align-items: center;
+
+  @include mobile {
+    gap: $spacing-md;
+  }
+}
+
+.pdf-page-container {
+  background: white;
+  box-shadow: $shadow-base;
+  border-radius: $border-radius-sm;
+  overflow: hidden;
+}
+
+.pdf-page-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// ============================================
+// PROJECT CONTENT
+// ============================================
+
+.project-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-title {
+  @include heading-1;
+  margin-bottom: $spacing-lg;
+  color: $color-text-primary;
+
+  @include mobile {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.project-description {
+  @include body-large;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+
+  p {
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include mobile {
+    font-size: $font-size-sm;
+  }
+}
+
+// ============================================
+// PAGE FADE-IN ANIMATION
+// ============================================
+
+.page-fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
