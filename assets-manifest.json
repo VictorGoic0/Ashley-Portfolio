@@ -1,0 +1,159 @@
+{
+  "print-ads": [
+    {
+      "slug": "spider-man-band-aid",
+      "title": "Spider-Man Band-Aid",
+      "aspectRatio": "9:16",
+      "type": "image",
+      "mediaPath": "assets/images/spider-man-band-aid-image.png",
+      "thumbnail": "assets/thumbnails-v2/spider-man-band-aid-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "prose",
+      "title": "Prose",
+      "aspectRatio": "9:16",
+      "type": "image",
+      "mediaPath": "assets/images/prose-image.png",
+      "thumbnail": "assets/thumbnails-v2/prose-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "anythingec-detailing-supplies",
+      "title": "AnythingEC - Detailing Supplies",
+      "aspectRatio": "9:16",
+      "type": "image",
+      "mediaPath": "assets/images/anythingec-detailing-supplies-image.png",
+      "thumbnail": "assets/thumbnails-v2/anythingec-detailing-supplies-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "anythingec-car-meet",
+      "title": "AnythingEC - Car Meet",
+      "aspectRatio": "9:16",
+      "type": "image",
+      "mediaPath": "assets/images/anythingec-car-meet-image.png",
+      "thumbnail": "assets/thumbnails-v2/anythingec-car-meet-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "ferrero-rocher",
+      "title": "Ferrero Rocher",
+      "aspectRatio": "9:16",
+      "type": "image",
+      "mediaPath": "assets/images/ferrero-rocher-image.png",
+      "thumbnail": "assets/thumbnails-v2/ferrero-rocher-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "little-caesars-pizza-ad",
+      "title": "Little Caesars Pizza Ad",
+      "aspectRatio": "9:16",
+      "type": "image",
+      "mediaPath": "assets/images/little-caesars-pizza-ad-image.png",
+      "thumbnail": "assets/thumbnails-v2/little-caesars-pizza-ad-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "starke-technologies",
+      "title": "Starke Technologies",
+      "aspectRatio": "9:16",
+      "type": "image",
+      "mediaPath": "assets/images/starke-technologies-image.jpg",
+      "thumbnail": "assets/thumbnails-v2/starke-technologies-9x16-thumbnail.jpg",
+      "notes": ""
+    }
+  ],
+  "projects": [
+    {
+      "slug": "eden-presley-mantra",
+      "title": "Eden Presley - Mantra Line Sheet",
+      "aspectRatio": "16:9",
+      "type": "pdf",
+      "mediaPath": "assets/pdfs/eden-presley-mantra.pdf",
+      "thumbnail": "assets/thumbnails-v2/eden-presley-mantra-16x9-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "eden-presley-one-of-a-kind",
+      "title": "Eden Presley - One of a Kind Line Sheet",
+      "aspectRatio": "16:9",
+      "type": "pdf",
+      "mediaPath": "assets/pdfs/eden-presley-one-of-a-kind.pdf",
+      "thumbnail": "assets/thumbnails-v2/eden-presley-one-of-a-kind-16x9-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "eden-presley-rock",
+      "title": "Eden Presley - Rock Line Sheet",
+      "aspectRatio": "16:9",
+      "type": "pdf",
+      "mediaPath": "assets/pdfs/eden-presley-rock.pdf",
+      "thumbnail": "assets/thumbnails-v2/eden-presley-rock-16x9-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "campaign",
+      "title": "Campaign Video",
+      "aspectRatio": "16:9",
+      "type": "video",
+      "mediaPath": "assets/videos/campaign.mp4",
+      "thumbnail": "assets/thumbnails-v2/campaign-16x9-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "creative-video-project-1",
+      "title": "Creative Video Project 1",
+      "aspectRatio": "9:16",
+      "type": "video",
+      "mediaPath": "assets/videos/creative-video-project-1.mp4",
+      "thumbnail": "assets/thumbnails-v2/creative-video-project-1-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "creative-video-project-2",
+      "title": "Creative Video Project 2",
+      "aspectRatio": "9:16",
+      "type": "video",
+      "mediaPath": "assets/videos/creative-video-project-2.mp4",
+      "thumbnail": "assets/thumbnails-v2/creative-video-project-2-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "creative-video-project-3",
+      "title": "Creative Video Project 3",
+      "aspectRatio": "9:16",
+      "type": "video",
+      "mediaPath": "assets/videos/creative-video-project-3.mp4",
+      "thumbnail": "assets/thumbnails-v2/creative-video-project-3-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "creative-video-project-4",
+      "title": "Creative Video Project 4",
+      "aspectRatio": "9:16",
+      "type": "video",
+      "mediaPath": "assets/videos/creative-video-project-4.mp4",
+      "thumbnail": "assets/thumbnails-v2/creative-video-project-4-9x16-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "fall-campaign",
+      "title": "Fall Campaign",
+      "aspectRatio": "16:9",
+      "type": "video",
+      "mediaPath": "assets/videos/fall-campaign.mp4",
+      "thumbnail": "assets/thumbnails-v2/fall-campaign-16x9-thumbnail.png",
+      "notes": ""
+    },
+    {
+      "slug": "spring-campaign",
+      "title": "Spring Campaign",
+      "aspectRatio": "16:9",
+      "type": "video",
+      "mediaPath": "assets/videos/spring-campaign.mp4",
+      "thumbnail": "assets/thumbnails-v2/spring-campaign-16x9-thumbnail.png",
+      "notes": ""
+    }
+  ]
+}

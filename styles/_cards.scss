@@ -1,0 +1,68 @@
+// Card Components
+// Phase 2A - Ashley Portfolio
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.project-card {
+  @include card;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+
+    .card-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.card-overlay {
+  @include absolute-cover;
+  @include flex-center;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  opacity: 0;
+  transition: opacity $transition-base;
+  pointer-events: none;
+}
+
+.card-label {
+  @include caption;
+  position: absolute;
+  bottom: $spacing-md;
+  left: $spacing-md;
+  color: white;
+  background: rgba($color-primary, 0.9);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+}
+
+// Card aspect ratio helpers
+.card--portrait {
+  @include aspect-ratio(9, 16);
+}
+
+.card--landscape {
+  @include aspect-ratio(16, 9);
+}
+
+.card--square {
+  @include aspect-ratio(1, 1);
+}

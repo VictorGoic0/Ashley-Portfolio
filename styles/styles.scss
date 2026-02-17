@@ -1,0 +1,143 @@
+// Main Styles Entry Point
+// Phase 2A - Ashley Portfolio
+
+// Import all partials
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'navigation';
+@use 'hero';
+@use 'cards';
+@use 'bento';
+
+// ============================================
+// GLOBAL RESET & BASE STYLES
+// ============================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  line-height: $line-height-base;
+  color: $color-text-primary;
+  background: linear-gradient(
+    to bottom,
+    $color-background 0%,
+    $color-neutral-100 100%
+  );
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ============================================
+// CSS CUSTOM PROPERTIES (for runtime flexibility)
+// ============================================
+
+:root {
+  // Colors
+  --color-primary: #{$color-primary};
+  --color-primary-light: #{$color-primary-light};
+  --color-primary-dark: #{$color-primary-dark};
+  --color-secondary: #{$color-secondary};
+  --color-secondary-light: #{$color-secondary-light};
+  --color-secondary-dark: #{$color-secondary-dark};
+  --color-neutral-900: #{$color-neutral-900};
+  --color-neutral-700: #{$color-neutral-700};
+  --color-neutral-500: #{$color-neutral-500};
+  --color-neutral-300: #{$color-neutral-300};
+  --color-neutral-100: #{$color-neutral-100};
+  --color-neutral-50: #{$color-neutral-50};
+  --color-background: #{$color-background};
+  --color-surface: #{$color-surface};
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+
+  // Spacing
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  --spacing-3xl: #{$spacing-3xl};
+  --spacing-4xl: #{$spacing-4xl};
+  --gap-card: #{$gap-card};
+  --gap-section: #{$gap-section};
+
+  // Typography
+  --font-size-xs: #{$font-size-xs};
+  --font-size-sm: #{$font-size-sm};
+  --font-size-base: #{$font-size-base};
+  --font-size-md: #{$font-size-md};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-xl: #{$font-size-xl};
+  --font-size-2xl: #{$font-size-2xl};
+  --font-size-3xl: #{$font-size-3xl};
+}
+
+// ============================================
+// SECTION STYLES
+// ============================================
+
+.project-section {
+  padding: $gap-section $container-padding;
+
+  @include mobile {
+    padding: $spacing-3xl $spacing-md;
+  }
+}
+
+.section-title {
+  @include heading-2;
+  margin-bottom: $spacing-xl;
+  color: $color-primary;
+
+  @include mobile {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// ============================================
+// 2-COLUMN GRID (for Print Ads section)
+// ============================================
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+.container {
+  @include container;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

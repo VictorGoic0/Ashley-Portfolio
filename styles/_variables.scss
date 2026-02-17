@@ -1,0 +1,129 @@
+// Design System Variables
+// Phase 2A - Ashley Portfolio
+
+// ============================================
+// COLORS
+// ============================================
+
+// Primary - Warm Coral/Terracotta
+$color-primary: #e07a5f;
+$color-primary-light: #f2b9a8;
+$color-primary-dark: #c25f47;
+
+// Secondary - Sage Green
+$color-secondary: #81b29a;
+$color-secondary-light: #b8d4c6;
+$color-secondary-dark: #5a8270;
+
+// Neutrals - Warm Grays
+$color-neutral-900: #2c2c2c;
+$color-neutral-700: #5a5a5a;
+$color-neutral-500: #8a8a8a;
+$color-neutral-300: #d4d4d4;
+$color-neutral-100: #f5f5f3;
+$color-neutral-50: #fafaf8;
+
+// Semantic Colors
+$color-background: $color-neutral-50;
+$color-surface: #ffffff;
+$color-text-primary: $color-neutral-900;
+$color-text-secondary: $color-neutral-700;
+$color-border: $color-neutral-300;
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+// Font Family
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+// Type Scale (1.250 - Major Third)
+$font-size-xs: 0.8rem;      // 12.8px
+$font-size-sm: 1rem;         // 16px
+$font-size-base: 1.125rem;   // 18px
+$font-size-md: 1.25rem;      // 20px
+$font-size-lg: 1.563rem;     // 25px
+$font-size-xl: 1.953rem;     // 31px
+$font-size-2xl: 2.441rem;    // 39px
+$font-size-3xl: 3.052rem;    // 49px
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-base: 1.5;
+$line-height-relaxed: 1.75;
+
+// Letter Spacing
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.05em;
+
+// ============================================
+// SPACING
+// ============================================
+
+// Base spacing unit: 8px
+$spacing-xs: 0.5rem;   // 8px
+$spacing-sm: 1rem;     // 16px
+$spacing-md: 1.5rem;   // 24px
+$spacing-lg: 2rem;     // 32px
+$spacing-xl: 3rem;     // 48px
+$spacing-2xl: 4rem;    // 64px
+$spacing-3xl: 6rem;    // 96px
+$spacing-4xl: 8rem;    // 128px
+
+// Grid Gaps
+$gap-card: 1.5rem;     // 24px
+$gap-section: 6rem;    // 96px
+
+// ============================================
+// LAYOUT
+// ============================================
+
+// Container
+$container-max-width: 1400px;
+$container-padding: $spacing-lg;
+
+// Navigation
+$nav-height-desktop: 80px;
+$nav-height-mobile: 64px;
+
+// Grid
+$grid-columns: 12;
+$bento-row-height: 200px;
+
+// ============================================
+// EFFECTS
+// ============================================
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-base: 0 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 8px 16px rgba(0, 0, 0, 0.12);
+$shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.15);
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-base: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+
+// Transitions
+$transition-fast: 150ms ease-in-out;
+$transition-base: 250ms ease-in-out;
+$transition-slow: 350ms ease-in-out;
+
+// ============================================
+// BREAKPOINTS
+// ============================================
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1200px;

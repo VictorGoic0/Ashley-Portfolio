@@ -1,0 +1,135 @@
+// Hero Section
+// Phase 2A - Ashley Portfolio
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero-section {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-4xl $spacing-lg;
+  overflow: hidden;
+
+  @include mobile {
+    min-height: 400px;
+    padding: $spacing-3xl $spacing-md;
+  }
+}
+
+.hero-background {
+  @include absolute-cover;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Gradient overlay for text readability
+  &::after {
+    @include absolute-cover;
+    content: '';
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+  color: white;
+}
+
+.hero-title {
+  @include heading-1;
+  font-size: $font-size-3xl;
+  margin: 0 0 $spacing-md;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.hero-subtitle {
+  @include heading-3;
+  margin: 0 0 $spacing-lg;
+  opacity: 0.95;
+
+  @include mobile {
+    font-size: $font-size-md;
+  }
+}
+
+.hero-description {
+  @include body-large;
+  margin: 0 0 $spacing-xl;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include mobile {
+    font-size: $font-size-sm;
+  }
+}
+
+.hero-cta {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+// Button styles
+.btn-primary,
+.btn-secondary {
+  @include button-reset;
+  @include focus-ring;
+  display: inline-block;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border-radius: $border-radius-base;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  @include mobile {
+    padding: $spacing-sm $spacing-lg;
+  }
+}
+
+.btn-primary {
+  background: $color-primary;
+  color: white;
+
+  &:hover {
+    background: $color-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+
+  &:hover {
+    background: white;
+    color: $color-text-primary;
+  }
+}

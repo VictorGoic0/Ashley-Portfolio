@@ -1,0 +1,97 @@
+// Navigation Header
+// Phase 2A - Ashley Portfolio
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  @include backdrop-blur;
+  border-bottom: 1px solid rgba($color-border, 0.5);
+}
+
+.main-nav {
+  height: $nav-height-desktop;
+
+  @include mobile {
+    height: $nav-height-mobile;
+  }
+}
+
+.nav-container {
+  @include container;
+  @include flex-center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav-logo {
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: $spacing-xl;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include mobile {
+    gap: $spacing-lg;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    position: relative;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    text-decoration: none;
+    letter-spacing: $letter-spacing-wide;
+    text-transform: uppercase;
+    transition: color $transition-base;
+    padding-bottom: 4px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $color-primary;
+      transition: width $transition-base;
+    }
+
+    &:hover {
+      color: $color-primary;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Smooth scroll behavior
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: $nav-height-desktop;
+
+  @include mobile {
+    scroll-padding-top: $nav-height-mobile;
+  }
+}

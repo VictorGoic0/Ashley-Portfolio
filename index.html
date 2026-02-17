@@ -3,128 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashley Portfolio</title>
+    <title>Ashley Zheng - Creative Designer & Art Director</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section with Background Image -->
-    <header class="header-section" id="header-section">
-        <div class="header-background"></div>
+    <!-- Sticky Navigation Header -->
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="#" class="nav-logo">Ashley Zheng</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#print-ads">Print Ads</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <!-- Portfolio Owner Information -->
-    <section class="owner-info">
-        <h1 class="owner-title">Ashley Zheng</h1>
-        <p class="owner-description">A brief description about the portfolio owner, their work, and their creative vision. This section provides context about who they are and what they do.</p>
-    </section>
+    <!-- Main Content -->
+    <main>
+        <!-- Enhanced Hero Section -->
+        <section class="hero-section" id="about">
+            <div class="hero-background">
+                <img src="assets/images/header.png" alt="Ashley Zheng Portfolio">
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Ashley Zheng</h1>
+                <p class="hero-subtitle">Creative Designer & Art Director</p>
+                <p class="hero-description">
+                    Crafting compelling visual narratives through print design, brand identity, and motion graphics. 
+                    Specializing in consumer goods, lifestyle brands, and editorial design with a focus on authentic storytelling.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">View Work</a>
+                    <a href="#about" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Print Ads Section -->
-    <section class="project-section">
-        <h2 class="section-title">Print Ads</h2>
-        <div class="project-grid" id="print-ads-grid">
-            <a href="projects/spider-man-band-aid.html" class="project-card card-fade-in" style="animation-delay: 0.1s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/spider-man-band-aid-thumbnail.png" alt="Spider-Man Band-Aid" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/prose.html" class="project-card card-fade-in" style="animation-delay: 0.2s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/prose-thumbnail.png" alt="Prose" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/anythingec-detailing-supplies.html" class="project-card card-fade-in" style="animation-delay: 0.3s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/anythingec-detailing-supplies-thumbnail.png" alt="AnythingEC Detailing Supplies" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/anythingec-car-meet.html" class="project-card card-fade-in" style="animation-delay: 0.4s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/anythingec-car-meet-thumbnail.png" alt="AnythingEC Car Meet" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/ferrero-rocher.html" class="project-card card-fade-in" style="animation-delay: 0.5s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/ferrero-rocher-thumbnail.png" alt="Ferrero Rocher" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/little-caesars-pizza-ad.html" class="project-card card-fade-in" style="animation-delay: 0.6s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/little-caesars-pizza-ad-thumbnail.png" alt="Little Caesars Pizza Ad" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/starke-technologies.html" class="project-card card-fade-in" style="animation-delay: 0.7s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/starke-technologies-thumbnail.jpg" alt="Starke Technologies" class="thumbnail-image">
-                </div>
-            </a>
-        </div>
-    </section>
+        <!-- Print Ads Section (2-column grid) -->
+        <section class="project-section" id="print-ads">
+            <h2 class="section-title">Print Ads</h2>
+            <div class="project-grid">
+                <a href="projects/spider-man-band-aid.html" class="project-card">
+                    <img src="assets/thumbnails-v2/spider-man-band-aid-9x16-thumbnail.png" alt="Spider-Man Band-Aid">
+                </a>
+                <a href="projects/prose.html" class="project-card">
+                    <img src="assets/thumbnails-v2/prose-9x16-thumbnail.png" alt="Prose">
+                </a>
+                <a href="projects/anythingec-detailing-supplies.html" class="project-card">
+                    <img src="assets/thumbnails-v2/anythingec-detailing-supplies-9x16-thumbnail.png" alt="AnythingEC Detailing Supplies">
+                </a>
+                <a href="projects/anythingec-car-meet.html" class="project-card">
+                    <img src="assets/thumbnails-v2/anythingec-car-meet-9x16-thumbnail.png" alt="AnythingEC Car Meet">
+                </a>
+                <a href="projects/ferrero-rocher.html" class="project-card">
+                    <img src="assets/thumbnails-v2/ferrero-rocher-9x16-thumbnail.png" alt="Ferrero Rocher">
+                </a>
+                <a href="projects/little-caesars-pizza-ad.html" class="project-card">
+                    <img src="assets/thumbnails-v2/little-caesars-pizza-ad-9x16-thumbnail.png" alt="Little Caesars Pizza Ad">
+                </a>
+                <a href="projects/starke-technologies.html" class="project-card">
+                    <img src="assets/thumbnails-v2/starke-technologies-9x16-thumbnail.jpg" alt="Starke Technologies">
+                </a>
+            </div>
+        </section>
 
-    <!-- Line Sheets Section -->
-    <section class="project-section">
-        <h2 class="section-title">Line Sheets</h2>
-        <div class="project-grid" id="line-sheets-grid">
-            <a href="projects/eden-presley-mantra.html" class="project-card card-fade-in" style="animation-delay: 0.1s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/eden-presley-mantra-thumbnail.png" alt="Eden Presley Mantra" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/eden-presley-one-of-a-kind.html" class="project-card card-fade-in" style="animation-delay: 0.2s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/eden-presley-one-of-a-kind-thumbnail.png" alt="Eden Presley One of a Kind" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/eden-presley-rock.html" class="project-card card-fade-in" style="animation-delay: 0.3s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/eden-presley-rock-thumbnail.png" alt="Eden Presley Rock" class="thumbnail-image">
-                </div>
-            </a>
-        </div>
-    </section>
+        <!-- Projects Section (Bento Grid: Line Sheets + Videos) -->
+        <section class="project-section" id="projects">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="bento-grid">
+                <!-- Line Sheets (16:9 landscape) -->
+                <a href="projects/eden-presley-mantra.html" class="project-card bento-item--16x9">
+                    <img src="assets/thumbnails-v2/eden-presley-mantra-16x9-thumbnail.png" alt="Eden Presley - Mantra Line Sheet">
+                    <div class="card-overlay">
+                        <span class="card-label">Line Sheet</span>
+                    </div>
+                </a>
+                <a href="projects/eden-presley-one-of-a-kind.html" class="project-card bento-item--16x9">
+                    <img src="assets/thumbnails-v2/eden-presley-one-of-a-kind-16x9-thumbnail.png" alt="Eden Presley - One of a Kind Line Sheet">
+                    <div class="card-overlay">
+                        <span class="card-label">Line Sheet</span>
+                    </div>
+                </a>
+                <a href="projects/eden-presley-rock.html" class="project-card bento-item--16x9">
+                    <img src="assets/thumbnails-v2/eden-presley-rock-16x9-thumbnail.png" alt="Eden Presley - Rock Line Sheet">
+                    <div class="card-overlay">
+                        <span class="card-label">Line Sheet</span>
+                    </div>
+                </a>
 
-    <!-- Video Edits Section -->
-    <section class="project-section">
-        <h2 class="section-title">Video Edits</h2>
-        <div class="project-grid" id="video-edits-grid">
-            <a href="projects/campaign.html" class="project-card card-fade-in" style="animation-delay: 0.1s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/campaign-thumbnail.png" alt="Campaign" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/creative-video-project-1.html" class="project-card card-fade-in" style="animation-delay: 0.2s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/creative-video-project-1-thumbnail.png" alt="Creative Video Project 1" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/creative-video-project-2.html" class="project-card card-fade-in" style="animation-delay: 0.3s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/creative-video-project-2-thumbnail.png" alt="Creative Video Project 2" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/creative-video-project-3.html" class="project-card card-fade-in" style="animation-delay: 0.4s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/creative-video-project-3-thumbnail.png" alt="Creative Video Project 3" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/creative-video-project-4.html" class="project-card card-fade-in" style="animation-delay: 0.5s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/creative-video-project-4-thumbnail.png" alt="Creative Video Project 4" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/fall-campaign.html" class="project-card card-fade-in" style="animation-delay: 0.6s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/fall-campaign-thumbnail.png" alt="Fall Campaign" class="thumbnail-image">
-                </div>
-            </a>
-            <a href="projects/spring-campaign.html" class="project-card card-fade-in" style="animation-delay: 0.7s;">
-                <div class="card-thumbnail thumbnail-regular">
-                    <img src="assets/thumbnails/spring-campaign-thumbnail.png" alt="Spring Campaign" class="thumbnail-image">
-                </div>
-            </a>
-        </div>
-    </section>
+                <!-- Videos - Mixed aspect ratios -->
+                <a href="projects/campaign.html" class="project-card bento-item--16x9">
+                    <img src="assets/thumbnails-v2/campaign-16x9-thumbnail.png" alt="Campaign Video">
+                    <div class="card-overlay">
+                        <span class="card-label">Video Edit</span>
+                    </div>
+                </a>
+                <a href="projects/creative-video-project-1.html" class="project-card bento-item--9x16">
+                    <img src="assets/thumbnails-v2/creative-video-project-1-9x16-thumbnail.png" alt="Creative Video Project 1">
+                    <div class="card-overlay">
+                        <span class="card-label">Video Edit</span>
+                    </div>
+                </a>
+                <a href="projects/creative-video-project-2.html" class="project-card bento-item--9x16">
+                    <img src="assets/thumbnails-v2/creative-video-project-2-9x16-thumbnail.png" alt="Creative Video Project 2">
+                    <div class="card-overlay">
+                        <span class="card-label">Video Edit</span>
+                    </div>
+                </a>
+                <a href="projects/creative-video-project-3.html" class="project-card bento-item--9x16">
+                    <img src="assets/thumbnails-v2/creative-video-project-3-9x16-thumbnail.png" alt="Creative Video Project 3">
+                    <div class="card-overlay">
+                        <span class="card-label">Video Edit</span>
+                    </div>
+                </a>
+                <a href="projects/creative-video-project-4.html" class="project-card bento-item--9x16">
+                    <img src="assets/thumbnails-v2/creative-video-project-4-9x16-thumbnail.png" alt="Creative Video Project 4">
+                    <div class="card-overlay">
+                        <span class="card-label">Video Edit</span>
+                    </div>
+                </a>
+                <a href="projects/fall-campaign.html" class="project-card bento-item--16x9">
+                    <img src="assets/thumbnails-v2/fall-campaign-16x9-thumbnail.png" alt="Fall Campaign">
+                    <div class="card-overlay">
+                        <span class="card-label">Video Edit</span>
+                    </div>
+                </a>
+                <a href="projects/spring-campaign.html" class="project-card bento-item--16x9">
+                    <img src="assets/thumbnails-v2/spring-campaign-16x9-thumbnail.png" alt="Spring Campaign">
+                    <div class="card-overlay">
+                        <span class="card-label">Video Edit</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
 </html>
-
