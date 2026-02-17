@@ -115,11 +115,11 @@ body {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: $spacing-lg;
+  gap: $spacing-sm; // Half of original (32px -> 16px)
 
   @include mobile {
     grid-template-columns: 1fr;
-    gap: $spacing-md;
+    gap: $spacing-sm; // Half of original (24px -> 16px)
   }
 }
 
